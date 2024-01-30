@@ -27,7 +27,7 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: "root"
         volumes:
-            - $PWD/services/mysql:/var/lib/mysql
+            - bramm-db:/var/lib/mysql
         ports:
             - 3306:3306
     redis:
@@ -55,3 +55,7 @@ services:
             UPLOAD_LIMIT: 10G
             MEMORY_LIMIT: 2G
             MAX_EXECUTION_TIME: 600
+
+volumes:
+    bramm-db:
+        driver: local

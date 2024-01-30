@@ -11,4 +11,3 @@
 
 ./services/caddy/config/
 ./services/caddy/data/
-./services/mysql/
