@@ -19,8 +19,8 @@ services:
         volumes:
             - $PWD/Caddyfile:/etc/caddy/Caddyfile
             - $PWD/src:/srv
-            - $PWD/services/caddy/data:/data
-            - $PWD/services/caddy/config:/config
+            - bramm-caddy/data:/data
+            - bramm-caddy/config:/config
     mysql:
         image: mysql:8.0
         restart: always
@@ -58,4 +58,6 @@ services:
 
 volumes:
     bramm-db:
+        driver: local
+    bramm-caddy:
         driver: local
