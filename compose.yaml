@@ -7,6 +7,9 @@ services:
         restart: always
         ports:
             - "8000:80"
+        depends_on:
+            - mysql
+
     caddy:
         image: caddy:alpine
         restart: unless-stopped
@@ -47,6 +50,8 @@ services:
         restart: always
         ports:
             - "8001:80"
+        depends_on:
+            - mysql
         environment:
             PMA_ABSOLUTE_URI: "https://phpmyadmin.dev/"
             PMA_HOST: mysql
