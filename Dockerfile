@@ -38,7 +38,7 @@ RUN php artisan route:cache
 # Optimizing View loading
 RUN php artisan view:cache
 
-# RUN php artisan migrate --force
+RUN php artisan migrate --force
 
 # Compilation des assets de Breeze (ou de votre site)
 RUN npm install
