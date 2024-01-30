@@ -19,16 +19,15 @@ services:
         volumes:
             - $PWD/Caddyfile:/etc/caddy/Caddyfile
             - $PWD/src:/srv
-            - $PWD/Services/caddy/data:/data
-            - $PWD/Services/caddy/config:/config
+            - bramm-caddy/data:/data
+            - bramm-caddy/config:/config
     mysql:
         image: mysql:8.0
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: "root"
-            MYSQL_ROOT_HOST: "%"
         volumes:
-            - $PWD/services/mysql:/var/lib/mysql
+            - bramm-db:/var/lib/mysql
         ports:
             - 3306:3306
     redis:
@@ -52,7 +51,13 @@ services:
             PMA_ABSOLUTE_URI: "https://phpmyadmin.dev/"
             PMA_HOST: mysql
             PMA_USER: root
-            PMA_PASSWORD: "SuperSecurePassword"
+            PMA_PASSWORD: "root"
             UPLOAD_LIMIT: 10G
             MEMORY_LIMIT: 2G
             MAX_EXECUTION_TIME: 600
+
+volumes:
+    bramm-db:
+        driver: local
+    bramm-caddy:
+        driver: local
