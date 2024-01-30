@@ -8,3 +8,7 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+./services/caddy/config/
+./services/caddy/data/
+./services/mysql/
