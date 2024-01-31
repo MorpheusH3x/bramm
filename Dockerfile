@@ -28,7 +28,7 @@ RUN cp -n src/.env.example src/.env
 WORKDIR /app/src
 # Installation et configuration de votre site pour la production
 # https://laravel.com/docs/10.x/deployment#optimizing-configuration-loading
-RUN composer install --no-interaction --optimize-autoloader
+RUN composer install --no-interaction --optimize-autoloader --no-dev
 # Generate security key
 RUN php artisan key:generate
 # Optimizing Configuration loading
