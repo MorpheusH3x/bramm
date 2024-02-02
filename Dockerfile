@@ -28,7 +28,6 @@ RUN php artisan route:cache
 RUN php artisan view:cache
 
 RUN composer require laravel/breeze --dev
-RUN php artisan breeze:install
 
 RUN npm install
 RUN npm run build
