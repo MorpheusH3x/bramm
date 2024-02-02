@@ -26,7 +26,7 @@ docker exec -it bramm-laravel-1 ./artisan db:seed
 
 - Monter l'environnement de production
 ```
-docker compose -f compose.yaml up --build
+docker compose -f compose.yaml up --build --force-recreate
 ```
 
 
