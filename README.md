@@ -10,7 +10,17 @@ Basé sur [Gist clandestine8](https://gist.github.com/clandestine8/48eb01d49a5ef
 docker compose -f compose-dev.yaml up --build
 ```
 
+- Monter l'environnement de développement
+```
+docker compose up --build --force-recreate
+```
+
 - Créer la base de données `boisdelouest` sur le [PHPMyAdmin](localhost:8001)
+
+- Installer Breeze
+```
+docker exec -it bramm-laravel-1 ./artisan breeze:install
+```
 
 - Faire les migrations
 ```
@@ -22,11 +32,16 @@ docker exec -it bramm-laravel-1 ./artisan migrate --force
 docker exec -it bramm-laravel-1 ./artisan db:seed
 ```
 
+## Front
+
+```
+npm install && npm run dev
+php artisan serve
+```
+
 # Production
 
 - Monter l'environnement de production
 ```
 docker compose -f compose.yaml up --build --force-recreate
 ```
-
-
