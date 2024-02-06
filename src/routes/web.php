@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,17 +22,19 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
-Route::get('/header', function () {
-    return view('header');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/register', 'UserController@create');
-Route::post('register', 'UserController@store');
-
-Route::get('/login', 'SessionsController@create');
-Route::post('/login', 'SessionsController@store');
-Route::get('/logout', 'SessionsController@destroy');
-
-Route::fallback(function() {
-   return view('404'); // la vue 404.blade.php
+Route::fallback(function () {
+    return view('404');
 });
+
+require __DIR__.'/auth.php';
