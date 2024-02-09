@@ -41,7 +41,8 @@ php artisan serve
 
 # Production
 
-- Monter l'environnement de production
+- Monter l'environnement de production:
+Note: Le Dockerfile s'occupe de passer l'environnment à `production` via une variable d'environnement dans le container.
 ```
 docker compose -f compose.yaml up --build --force-recreate
 ```
