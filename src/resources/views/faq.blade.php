@@ -5,9 +5,9 @@
 @section('content')
 <div class="text-center text-2xl py-20">
     <div class="text-2xl font-bold m-5 pb-10">Foire Aux Questions</div>
-    <a href="#" class="my-24 justify-center justify-center p-2 lg:px-4 md:mx-2 text-green-900 text-center border border-solid border-green-900 rounded hover:bg-green-900 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1 w-32">
+    <x-button-border>
         Poser votre question!
-    </a>
+    </x-button-border>
 </div>
 
 <div class="grid grid-cols-2 place-content-start">

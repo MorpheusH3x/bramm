@@ -1,4 +1,4 @@
-<footer class="bg-white rounded-lg shadow w-full">
+<footer class="bg-white rounded-lg shadow w-full mt-auto">
     <div class="w-full mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="self-center text-2xl font-semibold whitespace-nowrap text-green-900">Bois de l'Ouest</span>

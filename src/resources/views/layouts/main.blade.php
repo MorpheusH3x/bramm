@@ -15,13 +15,12 @@
     @vite('resources/css/app.css')
 </head>
 
-@include('partials.header')
+<div class="flex flex-col h-screen justify-between">
+    @include('partials.header')
+    <main class="mb-auto container mx-auto">
+                @yield('content')
+    </main>
+    @include('partials.footer')
+</div>
 
 
-<body>
-    <div class="container mx-auto">
-        @yield('content')
-    </div>
-</body>
-
-@include('partials.footer')

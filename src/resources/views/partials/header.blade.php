@@ -11,14 +11,17 @@
 
             <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
 
-                @php
-                    $active = "p-2 lg:px-4 md:mx-2 text-white rounded bg-green-900 hover:bg-gray-200 hover:text-green-900 transition-colors duration-300";
-                    $nonactive = "p-2 lg:px-4 md:mx-2 text-green-900 rounded bg-gray-200 hover:bg-green-900 hover:text-white transition-colors duration-300";
-                @endphp
+                <x-button href="{{route('home')}}" :active="Request::routeIs('home')">
+                    Accueil
+                </x-button>
 
-                <a href="{{ route('home') }}" class="{{ Request::routeIs('home') ? $active : $nonactive }}">Accueil</a>
-                <a href="{{ route('about') }}" class="{{ Request::routeIs('about') ? $active : $nonactive }}">A propos</a>
-                <a href="{{ route('faq') }}" class="{{ Request::routeIs('faq') ? $active : $nonactive }}">FAQ</a>
+                <x-button href="{{route('about')}}" :active="Request::routeIs('about')">
+                    A propos
+                </x-button>
+
+                <x-button href="{{route('faq')}}" :active="Request::routeIs('faq')">
+                    FAQ
+                </x-button>
 
                 @auth
                 <!-- Authentication -->
