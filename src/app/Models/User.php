@@ -27,4 +27,14 @@ class User extends Authenticatable
     * @var bool
     */
     public $timestamps = false;
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class, 'userId');
+    }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }

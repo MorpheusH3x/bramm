@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Answer;
+use App\Models\User;
 use Faker\Generator;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,6 +23,7 @@ class QuestionFactory extends Factory
         return [
             // https://github.com/fzaninotto/Faker/issues/1512#issuecomment-450109983
             // 'answerId' => $this->faker->unique(true)->numberBetween(1, Answer::count()),
+            'userId' => function () {return User::factory()->create()->id;},
             'answerId' => function () {return Answer::factory()->create()->id;},
             'content' => $this->faker->realText(200, 2),
         ];

@@ -28,6 +28,8 @@ return new class extends Migration
 
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('userId');
+            $table->foreign('userId')->references('id')->on('users');
             $table->unsignedBigInteger('answerId');
             $table->foreign('answerId')->references('id')->on('answers');
             $table->text('content');

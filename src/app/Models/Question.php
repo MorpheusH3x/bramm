@@ -15,4 +15,14 @@ class Question extends Model
     * @var bool
     */
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'userId');
+    }
+
+    public function answer()
+    {
+        return $this->belongsTo(Answer::class, 'answerId');
+    }
 }
