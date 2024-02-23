@@ -23,7 +23,7 @@
                         <div>
                             <div class="pt-3 text-gray-600">{{ $question->answer->content }}</div>
                             <div class="flex items-center pt-3 text-gray-600">
-                                <div class="mr-2 h-10 w-10 flex-shrink-0 sm:mr-3"><img class="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg" width="40" height="40" alt="Alex Shatov" /></div>
+                                <div class="mr-2 h-10 w-10 flex-shrink-0 sm:mr-3"><img class="rounded-full" src=" {{ $question->answer->user->profile }} " width="40" height="40" alt="{{ $question->answer->user->firstname }} {{ $question->answer->user->lastname }}" /></div>
                                 <div class="font-medium text-gray-800">{{ $question->answer->user->firstname }} {{ $question->answer->user->lastname }}</div>
                             </div>
                         </div>

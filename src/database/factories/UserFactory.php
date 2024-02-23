@@ -17,9 +17,14 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+
+        $firstname = $this->faker->firstName;
+        $lastname = $this->faker->lastName;
+
         return [
-            'firstname' => $this->faker->firstName,
-            'lastname' => $this->faker->lastName,
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'profile' => $this->faker->imageUrl(40, 40, $firstname, false, '', true, 'png'),
             'email' => $this->faker->unique()->safeEmail,
             'password' => Hash::make('password'),
         ];
