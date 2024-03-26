@@ -21,6 +21,7 @@ COPY . .
 
 WORKDIR /app/src
 RUN composer install --no-interaction --optimize-autoloader
+RUN chown -R application:application .
 RUN php artisan key:generate
 RUN php artisan config:cache
 RUN php artisan route:cache
