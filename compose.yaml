@@ -4,7 +4,7 @@ services:
             dockerfile: Dockerfile
         restart: always
         ports:
-            - "8000:80"
+            - 127.0.0.1:8000:80
         volumes:
             - ./src:/app/src
         depends_on:
@@ -15,9 +15,9 @@ services:
         cap_add:
           - NET_ADMIN
         ports:
-            - "80:80"
-            - "443:443"
-            - "443:443/udp"
+            - 127.0.0.1:80:80
+            - 127.0.0.1:443:443
+            - 127.0.0.1:443:443/udp
         volumes:
             - $PWD/Caddyfile:/etc/caddy/Caddyfile
             - $PWD/src:/srv
@@ -31,24 +31,24 @@ services:
         volumes:
             - bramm-db:/var/lib/mysql
         ports:
-            - 3306:3306
+            - 127.0.0.1:3306:3306
     redis:
         restart: always
         image: redis:6
         command: redis-server --appendonly yes
         ports:
-            - 6379:6379
+            - 127.0.0.1:6379:6379
     mailhog:
         image: mailhog/mailhog
         restart: always
         ports:
-            - 1025:1025
-            - 8025:8025
+            - 127.0.0.1:1025:1025
+            - 127.0.0.1:8025:8025
     phpmyadmin:
         image: phpmyadmin:latest
         restart: always
         ports:
-            - "8001:80"
+            - 127.0.0.1:8001:80
         depends_on:
             - mysql
         environment:
