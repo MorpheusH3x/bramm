@@ -1,3 +1,3 @@
-```
-docker compose up -d --build --force-recreate
+```bash
+./install.sh
 ```
