@@ -54,3 +54,14 @@ sail artisan migrate
 sail artisan db:seed
 sail npm run dev
 ```
+
+## Bobologie:
+
+- `sail npm run dev`:
+```
+failed to load config from /var/www/html/vite.config.js
+error during build:
+Error: EACCES: permission denied, open '/var/www/html/vite.config.js.timestamp-1714377928668-bfc20cda0db95.mjs'
+```
+
+Résolution: `sudo chmod -R 777 src/`
