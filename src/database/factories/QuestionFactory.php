@@ -23,9 +23,26 @@ class QuestionFactory extends Factory
         return [
             // https://github.com/fzaninotto/Faker/issues/1512#issuecomment-450109983
             // 'answerId' => $this->faker->unique(true)->numberBetween(1, Answer::count()),
-            'userId' => function () {return User::factory()->create()->id;},
-            'answerId' => function () {return Answer::factory()->create()->id;},
+            'userId' => function () {
+                return User::factory()->create()->id;
+            },
+            'answerId' => function () {
+                return Answer::factory()->create()->id;
+            },
             'content' => $this->faker->realText(200, 2),
+        ];
+    }
+
+    public function noAttributes()
+    {
+        $faker = \Faker\Factory::create();
+
+        return [
+            'userId' => function () {
+                return User::factory()->create()->id;
+            },
+            'answerId' => null,
+            'content' => $faker->realText(200, 2),
         ];
     }
 }

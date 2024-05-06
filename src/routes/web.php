@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminNoAnswerController;
+use App\Http\Controllers\AdminAnsweredController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/admin-no-answer', [AdminNoAnswerController::class, 'list'])->name('admin.noanswer');
+    Route::get('/admin-answered', [AdminAnsweredController::class, 'list'])->name('admin.answered');
+    Route::post('/admin-no-answer/{id}/{route}', [QuestionController::class, 'destroy'])->name('question.delete');
+    Route::post('/admin-answered/{id}/{route}', [QuestionController::class, 'destroy'])->name('question.delete');
 });
 
 Route::fallback(function () {
