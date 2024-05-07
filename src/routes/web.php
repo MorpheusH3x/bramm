@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminNoAnswerController;
 use App\Http\Controllers\AdminAnsweredController;
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin-answered', [AdminAnsweredController::class, 'list'])->name('admin.answered');
     Route::post('/admin-no-answer/{id}/{route}', [QuestionController::class, 'destroy'])->name('question.delete');
     Route::post('/admin-answered/{id}/{route}', [QuestionController::class, 'destroy'])->name('question.delete');
+    Route::post('/admin-answered/{id}', [QuestionController::class, 'modify'])->name('question.modify');
+    Route::post('/admin-noanswer/{id}', [AnswerController::class, 'create'])->name('answer.create');
+    Route::post('/admin-noanswer', [AnswerController::class, 'store'])->name('answer.store');
 });
 
 Route::fallback(function () {
