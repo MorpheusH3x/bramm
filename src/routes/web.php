@@ -39,11 +39,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/admin-no-answer', [AdminNoAnswerController::class, 'list'])->name('admin.noanswer');
     Route::get('/admin-answered', [AdminAnsweredController::class, 'list'])->name('admin.answered');
+
     Route::post('/admin-no-answer/{id}/{route}', [QuestionController::class, 'destroy'])->name('question.delete');
     Route::post('/admin-answered/{id}/{route}', [QuestionController::class, 'destroy'])->name('question.delete');
-    Route::post('/admin-answered/{id}', [QuestionController::class, 'modify'])->name('question.modify');
+    
     Route::post('/admin-noanswer/{id}', [AnswerController::class, 'create'])->name('answer.create');
     Route::post('/admin-noanswer', [AnswerController::class, 'store'])->name('answer.store');
+    Route::post('/admin-answered/{id}', [AnswerController::class, 'edit'])->name('answer.edit');
+    Route::post('/admin-answered', [AnswerController::class, 'update'])->name('answer.update');
 });
 
 Route::fallback(function () {

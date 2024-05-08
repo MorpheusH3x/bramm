@@ -31,7 +31,7 @@
                         Supprimer
                     </button>
                 </form>
-                <form method="POST" action="{{ route('admin.answered') }}">
+                <form method="POST" action="{{ route('answer.edit', ['id' => $question->id]) }}">
                     @csrf
 
                     <button type="submit" class="text-14532d m-2 mr-10">
