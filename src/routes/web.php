@@ -37,16 +37,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/admin-no-answer', [AdminNoAnswerController::class, 'list'])->name('admin.noanswer');
-    Route::get('/admin-answered', [AdminAnsweredController::class, 'list'])->name('admin.answered');
+    Route::get('/admin/no-answered/list', [AdminNoAnswerController::class, 'list'])->name('admin.noanswer');
+    Route::get('/admin/answered/list', [AdminAnsweredController::class, 'list'])->name('admin.answered');
 
-    Route::post('/admin-no-answer/{id}/{route}', [QuestionController::class, 'destroy'])->name('question.delete');
-    Route::post('/admin-answered/{id}/{route}', [QuestionController::class, 'destroy'])->name('question.delete');
-    
-    Route::post('/admin-noanswer/{id}', [AnswerController::class, 'create'])->name('answer.create');
-    Route::post('/admin-noanswer', [AnswerController::class, 'store'])->name('answer.store');
-    Route::post('/admin-answered/{id}', [AnswerController::class, 'edit'])->name('answer.edit');
-    Route::post('/admin-answered', [AnswerController::class, 'update'])->name('answer.update');
+    Route::post('/admin/no-answer/delete/{id}/{route}', [QuestionController::class, 'destroy'])->name('question.delete');
+    Route::post('/admin/answered/delete/{id}/{route}', [QuestionController::class, 'destroy'])->name('question.delete');
+
+    Route::post('/admin/no-answered/{id}', [AnswerController::class, 'create'])->name('answer.create');
+    Route::post('/admin/no-answered', [AnswerController::class, 'store'])->name('answer.store');
+    Route::post('/admin/answered/edit/{id}', [AnswerController::class, 'edit'])->name('answer.edit');
+    Route::post('/admin/answered', [AnswerController::class, 'update'])->name('answer.update');
 });
 
 Route::fallback(function () {
