@@ -13,7 +13,6 @@
         <div class="divide-y divide-gray-300/50">
             <div class="pb-3 text-gray-900">
                 <div>{{ $question->content }}</div><br>
-                <div>Par {{ $question->user->firstname }} {{ $question->user->lastname }}</div>
             </div>
             <div class="text-center space-x-100">
                 <form method="POST" action="{{ route('answer.create', ['id' => $question]) }}">

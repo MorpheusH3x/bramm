@@ -17,7 +17,7 @@ class AnswerController extends Controller
     {
         $question = Question::find($request->id);
         return view('createAnswer')
-            ->with('question', $question);;
+            ->with('question', $question);
     }
 
     /**

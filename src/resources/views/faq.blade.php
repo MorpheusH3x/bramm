@@ -5,9 +5,9 @@
 @section('content')
 <div class="text-center text-2xl py-20">
     <div class="text-2xl font-bold m-5 pb-10">Foire Aux Questions</div>
-    <x-button-border>
+     <x-button href="{{route('question.create')}}">
         Poser votre question!
-    </x-button-border>
+    </x-button>
 </div>
 
 <div class="grid grid-cols-2 place-content-start">
@@ -18,7 +18,6 @@
                     <div class="divide-y divide-gray-300/50">
                         <div class="pb-3 text-gray-900">
                             <div>{{ $question->content }}</div>
-                            <div>Par {{ $question->user->firstname }} {{ $question->user->lastname }}</div>
                         </div>
                         <div>
                             <div class="pt-3 text-gray-600">{{ $question->answer->content }}</div>

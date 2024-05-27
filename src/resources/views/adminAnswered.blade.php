@@ -14,7 +14,6 @@
         <div class="divide-y divide-gray-300/50">
             <div class="pb-3 text-gray-900">
                 <div>{{ $question->content }}</div>
-                <div>Par {{ $question->user->firstname }} {{ $question->user->lastname }}</div>
             </div>
             <div>
                 <div class="pt-3 text-gray-600">{{ $question->answer->content }}</div>
