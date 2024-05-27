@@ -13,5 +13,8 @@ class QuestionSeeder extends Seeder
     public function run(): void
     {
         Question::factory(5)->create();
+        Question::factory(5)->state([
+            'answerId' => null,
+        ])->create();
     }
 }

@@ -15,4 +15,14 @@ class Answer extends Model
     * @var bool
     */
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'userId');
+    }
+
+    public function question()
+    {
+        return $this->hasOne(Question::class, 'answerId');
+    }
 }

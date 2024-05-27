@@ -5,43 +5,63 @@ Basé sur [Gist clandestine8](https://gist.github.com/clandestine8/48eb01d49a5ef
 
 # Développement
 
-- Monter l'environnement de développement
+- Monter l'environnement de développement (Laravel + Vite)
 ```
-docker compose -f compose-dev.yaml up --build
-```
-
-- Monter l'environnement de développement
-```
-docker compose up --build --force-recreate
+sail up
 ```
 
-- Créer la base de données `boisdelouest` sur le [PHPMyAdmin](localhost:8001)
-
-- Installer Breeze
 ```
-docker exec -it bramm-laravel-1 ./artisan breeze:install
+sail npm run dev
+```
+
+- Créer la base de données `boisdelouest`:
+```
+sail mysql -u root -ppassword -e "CREATE DATABASE boisdelouest;"
 ```
 
 - Faire les migrations
 ```
-docker exec -it bramm-laravel-1 ./artisan migrate --force
+sail artisan migrate
 ```
 
 - Seed la base de données
 ```
-docker exec -it bramm-laravel-1 ./artisan db:seed
+sail artisan db:seed
 ```
+
+- Reset la base de données
+```
+sail artisan migrate:reset
+```
+
+- Accéder au [site](0.0.0.0:80) 
+- Accéder au [PHPMyAdmin](0.0.0.0:8080) 
 
 ## Front
 
 ```
-npm install && npm run dev
-php artisan serve
+sail npm install
+sail npm run dev
 ```
 
 # Production
 
-- Monter l'environnement de production
+- Monter l'environnement de production:
 ```
-docker compose -f compose.yaml up --build --force-recreate
+sail up
+sail mysql -u root -ppassword -e "CREATE DATABASE boisdelouest;"
+sail artisan migrate
+sail artisan db:seed
+sail npm run dev
 ```
+
+## Bobologie:
+
+- `sail npm run dev`:
+```
+failed to load config from /var/www/html/vite.config.js
+error during build:
+Error: EACCES: permission denied, open '/var/www/html/vite.config.js.timestamp-1714377928668-bfc20cda0db95.mjs'
+```
+
+Résolution: `sudo chmod -R 777 src/`

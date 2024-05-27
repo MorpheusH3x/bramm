@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email')->unique();
+            $table->string('profile');
             $table->string('password');
         });
 
@@ -28,8 +29,8 @@ return new class extends Migration
 
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('answerId');
-            $table->foreign('answerId')->references('id')->on('answers');
+            $table->unsignedBigInteger('answerId')->nullable();
+            $table->foreign('answerId')->references('id')->on('answers')->onDelete('set null');
             $table->text('content');
         });
     }

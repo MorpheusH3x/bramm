@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Answer;
+use App\Models\User;
 use Faker\Generator;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,10 +21,20 @@ class QuestionFactory extends Factory
     {
         $this->faker = app(Generator::class);
         return [
-            // https://github.com/fzaninotto/Faker/issues/1512#issuecomment-450109983
-            // 'answerId' => $this->faker->unique(true)->numberBetween(1, Answer::count()),
-            'answerId' => function () {return Answer::factory()->create()->id;},
+            'answerId' => function () {
+                return Answer::factory()->create()->id;
+            },
             'content' => $this->faker->realText(200, 2),
+        ];
+    }
+
+    public function noAttributes()
+    {
+        $faker = \Faker\Factory::create();
+
+        return [
+            'answerId' => null,
+            'content' => $faker->realText(200, 2),
         ];
     }
 }
