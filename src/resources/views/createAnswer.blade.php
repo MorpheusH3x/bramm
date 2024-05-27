@@ -14,7 +14,7 @@
                 <div class="text-xl font-bold text-align-left mb-5">L'utilisateur à demandé :</div>
                 <div>{{ $question->content }}</div><br>
             </div>
-            <form method="POST" action="{{ route('answer.store', ['id' => $question->id]) }}" class="flex flex-col items-center space-y-2">
+            <form method="POST" action="{{ route('admin.noanswer.store', ['id' => $question->id]) }}" class="flex flex-col items-center space-y-2">
                 @csrf
                 @method('POST')
                 <textarea name="answerContent" class="w-full"></textarea>
