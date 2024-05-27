@@ -1,7 +1,7 @@
 FROM webdevops/php-nginx:8.3-alpine
 
 # Installation dans votre Image du minimum pour que Docker fonctionne
-RUN apk add oniguruma-dev libxml2-dev
+RUN apk add oniguruma-dev libxml2-dev mysql-client
 RUN docker-php-ext-install \
         bcmath \
         ctype \
