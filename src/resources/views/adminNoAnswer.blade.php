@@ -15,13 +15,13 @@
                 <div>{{ $question->content }}</div><br>
             </div>
             <div class="text-center space-x-100">
-                <form method="POST" action="{{ route('answer.create', ['id' => $question]) }}">
+                <form method="POST" action="{{ route('admin.noanswer.create', ['id' => $question]) }}">
                     @csrf
                     <button type="submit" class="text-14532d m-2 mr-10">
                         Répondre
                     </button>
                 </form>
-                <form method="POST" action="{{ route('question.delete', ['id' => $question->id, 'route' => 'admin.noanswer']) }}">
+                <form method="POST" action="{{ route('admin.noanswer.delete', ['id' => $question->id, 'route' => 'admin.noanswer']) }}">
                     @csrf
                     <button type="submit" class="text-14532d m-2 mr-10">
                         Supprimer
