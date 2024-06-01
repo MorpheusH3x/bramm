@@ -33,7 +33,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::post('/question/create', [QuestionController::class, 'create'])->name('question.create');
+Route::get('/question/create', [QuestionController::class, 'create'])->name('question.create');
 Route::post('/question', [QuestionController::class, 'store'])->name('question.store');
 
 
